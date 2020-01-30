@@ -22,7 +22,8 @@ Or install it yourself as:
 
 ```
 client = EngagesparkClient.new(token: "YOUR-TOKEN", org_id: 321)
-client.send_sms(
+
+response = client.send_sms(
   to: "639181234567",
   message: "Hello, world!",
 )
