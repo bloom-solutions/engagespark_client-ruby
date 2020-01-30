@@ -1,5 +1,7 @@
 # EngagesparkClient
 
+[![Build Status](https://travis-ci.com/bloom-solutions/engagespark_client-ruby.svg?branch=master)](https://travis-ci.com/bloom-solutions/engagespark_client-ruby)
+
 Ruby wrapper for the [engageSPARK](https://engagespark.com) [API]().
 
 ## Installation
