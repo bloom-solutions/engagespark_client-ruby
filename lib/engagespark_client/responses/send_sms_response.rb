@@ -3,18 +3,36 @@ module EngagesparkClient
 
     include APIClientBase::Response.module
 
-    attribute :error, String, lazy: true, default: :default_error
-    attribute :message_id, String, lazy: true, default: :default_message_id
-    attribute(:estimate_parts, Integer, {
-      lazy: true,
-      default: :default_estimate_parts,
-    })
-    attribute :estimate_micro, Integer, lazy: true, default: :default_estimate_micro
-    attribute :estimate, Decimal, lazy: true, default: :default_estimate
-    attribute :delivery_deadline, DateTime, lazy: true, default: :default_delivery_deadline
-    attribute :contact_id, Integer, lazy: true, default: :default_contact_id
-    attribute :to, String, lazy: true, default: :default_to
-    attribute :message, String, lazy: true, default: :default_message
-    
+    BODY_ATTRS = {
+      error: String,
+      message_id: String,
+      estimate_parts: Integer,
+      estimate_micro: Integer,
+      estimate: Decimal,
+      delivery_deadline: DateTime,
+      contact_id: Integer,
+      to: String,
+      message: String,
+    }.freeze
+
+    attribute :body, String, lazy: true, default: :default_body
+    attribute :parsed_body, String, lazy: true, default: :default_parsed_body
+
+    BODY_ATTRS.each do |attr, type|
+      attribute attr, type, lazy: true, default: :"default_#{attr}"
+
+      define_method "default_#{attr}" do
+        parsed_body[attr.to_s.camelize(:lower)]
+      end
+    end
+
+    def default_body
+      raw_response.body
+    end
+
+    def parsed_body
+      JSON.parse(body)
+    end
+
   end
 end
