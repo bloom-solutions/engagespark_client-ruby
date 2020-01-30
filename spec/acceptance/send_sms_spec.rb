@@ -10,7 +10,7 @@ RSpec.describe "Sending SMS messages", vcr: {record: :once} do
       message: "Hello via engageSPARK",
     )
 
-    aggregated_failures do
+    aggregate_failures do
       expect(response).to be_success
       expect(response.error).to eq ""
       expect(response.message_id).to eq "SMS20200130T040939-127-9990"
