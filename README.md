@@ -1,6 +1,6 @@
 # EngagesparkClient
 
-Ruby wrapper for the engageSPARK API.
+Ruby wrapper for the [engageSPARK](https://engagespark.com) [API]().
 
 ## Installation
 
