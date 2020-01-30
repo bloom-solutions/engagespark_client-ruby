@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.engagespark.com/v1/sms/phonenumber
+    body:
+      encoding: UTF-8
+      string: '{"orgId":[org_id],"to":"[mobile]","from":null,"message":"Hello via
+        engageSPARK"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Token [token]
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Thu, 30 Jan 2020 04:09:05 GMT
+      Content-Type:
+      - application/jsonl; charset=utf-8
+      Content-Length:
+      - '270'
+      Set-Cookie:
+      - __cfduid=dc3394c4c6bc2ee6a70a6ac2de40c0afc1580357345; expires=Sat, 29-Feb-20
+        04:09:05 GMT; path=/; domain=.engagespark.com; HttpOnly; SameSite=Lax
+      Cache-Control:
+      - max-age=0
+      Vary:
+      - Origin
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Accept-Ranges:
+      - bytes
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55d0969edd67f246-ORD
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": "",
+          "messageId": "SMS20200130T040905-590-[org_id]",
+          "estimateParts": 1,
+          "estimateMicro": 20000,
+          "estimate": "0.02",
+          "deliveryDeadline": "2020-01-31T04:09:05.194848729Z",
+          "contactId": 0,
+          "to": "[mobile]",
+          "message": "Hello via engageSPARK"
+        }
+    http_version: 
+  recorded_at: Thu, 30 Jan 2020 04:09:05 GMT
+recorded_with: VCR 5.0.0
